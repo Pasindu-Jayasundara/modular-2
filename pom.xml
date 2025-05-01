@@ -29,6 +29,12 @@
             <version>1.0</version>
             <type>ejb-client</type>
         </dependency>
+        <dependency>
+            <groupId>org.example.ee</groupId>
+            <artifactId>CDIModule</artifactId>
+            <version>1.0</version>
+            <type>ejb-client</type>
+        </dependency>
     </dependencies>
 
     <build>
