@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.ee.ejb.remote.AppSetting;
+import org.example.ee.ejb.remote.UserRegistration;
 
 import java.io.IOException;
 
@@ -16,9 +17,14 @@ public class CDITest extends HttpServlet {
     @EJB
     AppSetting appSetting;
 
+    @EJB
+    UserRegistration userRegistration;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         resp.getWriter().write(appSetting.getName()+" "+appSetting.getVersion()+" "+appSetting.getDescription());
+        userRegistration.register();
+
     }
 }
