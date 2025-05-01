@@ -1,5 +1,5 @@
 package org.example.ee.cdi;
-
+ 
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
