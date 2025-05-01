@@ -2,8 +2,7 @@ package org.example.ee.ejb.impl;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import jakarta.ejb.EJB;
-import jakarta.ejb.Stateful;
+import jakarta.ejb.*;
 import org.example.ee.ejb.remote.AppSettings;
 import org.example.ee.ejb.remote.UserDetails;
 
@@ -26,19 +25,22 @@ public class UserDetailsStatefulBean implements UserDetails {
 
     @Override
     public String getName() {
-
-//        try{
-//            InitialContext initialContext = new InitialContext();
-//            AppSettings appSettings = (AppSettings) initialContext.lookup("java:global/ejb-module/AppSettingsBean");
-//
-//            return appSettings.getAppName();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
-//        return null;
-
         return appSettings.getAppName() + " " + appSettings.getAppVersion();
+    }
+
+    @Remove
+    public void remove() {
+        System.out.println("UserDetailsBean remove");
+    }
+
+    @PrePassivate
+    public void passivate() {
+        System.out.println("UserDetailsBean passivate");
+    }
+
+    @PostActivate
+    public void activate() {
+        System.out.println("UserDetailsBean activate");
     }
 
     @Override
