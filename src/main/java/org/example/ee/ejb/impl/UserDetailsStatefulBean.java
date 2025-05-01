@@ -4,16 +4,15 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateful;
-import jakarta.ejb.Stateless;
 import org.example.ee.ejb.remote.AppSettings;
 import org.example.ee.ejb.remote.UserDetails;
 
-import javax.naming.InitialContext;
 
-@Stateless
-public class UserDetailsBean implements UserDetails {
+@Stateful
+public class UserDetailsStatefulBean implements UserDetails {
 
-    @EJB private AppSettings appSettings;
+    @EJB
+    private AppSettings appSettings;
 
     @PostConstruct
     public void init() {
