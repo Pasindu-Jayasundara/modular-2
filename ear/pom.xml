@@ -54,15 +54,34 @@
                     <!--         meyata sambanda libry thiyaganna folder eka           -->
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
                     <modules>
-                        <!-- ejb module thiyena ganata danna one -->
+                        <!--
+                            core eka dana eka niwarya nh eka lib widihata
+                            add wela thiyenawa .jar nisa
+                        -->
+                        <jarModule>
+                            <groupId>org.example.ee</groupId>
+                            <artifactId>core</artifactId>
+                            <bundeleFileName>core.jar</bundeleFileName>
+                        </jarModule>
+                        <!--
+                            ejb/web module thiyena ganata danna one
+                            web module wala context root same wenna bh
+                        -->
                         <ejbModule>
                             <groupId>org.example.ee</groupId>
                             <artifactId>ejb</artifactId>
+                            <!--
+                                aniwarya nh. application.xml eke me module eka generate karana name
+                                eka mehema wenas karanna puluwan
+                                extension ekath ekkama denna one
+                            -->
+                            <bundeleFileName>ejb-module.jar</bundeleFileName>
                         </ejbModule>
                         <webModule>
                             <groupId>org.example.ee</groupId>
                             <artifactId>web</artifactId>
                             <contextRoot>/ee-app</contextRoot>
+                            <bundeleFileName>web-module.war</bundeleFileName>
                         </webModule>
                     </modules>
                 </configuration>
