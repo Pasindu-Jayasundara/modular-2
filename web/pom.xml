@@ -10,6 +10,8 @@
     </parent>
 
     <artifactId>web</artifactId>
+    <packaging>war</packaging>
+    <name>ee-web</name>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -17,4 +19,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-web-api</artifactId>
+            <version>10.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.name}</finalName>
+    </build>
 </project>
