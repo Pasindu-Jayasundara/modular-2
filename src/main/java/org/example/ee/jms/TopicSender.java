@@ -4,10 +4,9 @@ import jakarta.jms.*;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import java.io.IOException;
 import java.util.Scanner;
 
-public class App {
+public class TopicSender {
 
     public static void main(String[] args) {
 
@@ -39,6 +38,9 @@ public class App {
                 publisher.publish(message);
             }
             scanner.close();
+            publisher.close();
+            session.close();
+            connection.close();
 
         } catch (NamingException | JMSException e) {
             e.printStackTrace();
