@@ -8,6 +8,7 @@ import jakarta.jms.Message;
 import jakarta.jms.MessageListener;
 
 @MessageDriven(activationConfig = {
+        @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "jakarta.jms.Queue"),
         @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "jms/MyQueue"),
         @ActivationConfigProperty(propertyName = "maxPoolSize", propertyValue = "1"),
         @ActivationConfigProperty(propertyName = "poolResizeQuantity", propertyValue = "1"),
